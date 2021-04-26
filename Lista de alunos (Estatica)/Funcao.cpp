@@ -160,27 +160,29 @@ int tamanhoDaLista(List* Pont) {
 }
 //---
 
-// Ver situação do aluno
-int situacaoDoAluno(List* Pont, int al, Aluno* aluno) {
+// Função para exibir a lista toda
 
+void imprimirLista(List* Pont) {
+	for (int i = 0; i < Pont->Quantidade; i++) {
+		cout << i + 1 << " - " << "Nome = " << Pont->listaAlunos[i].nome << " Matricula = " << Pont->listaAlunos[i].matricula<< "\n";
+	}
 }
 
-// Função que vai calcular a media da turma
-/*
-int MediaDaTurma(List* Pont, int al, Aluno* aluno) {
 
-	if (Pont == NULL) {
-		cout << "\nERROR" << endl;
-		return 0;
-	}
-	else if (al <= 0 || al > Pont->Quantidade)
-	{
-		cout << "Elemento não encontrado!" << endl;
-		return 0;
-	}
-	else
-	{
-		for (int i = 0; Pont->Quantidade)
+/* Função para calcular média de toda a turma
+int MediaDaTurma(List* Pont) {
 
+	for (int i = 0;i < Pont->Quantidade; i++ ) {
+		
+		cout << ((Pont->listaAlunos[i].n1 + Pont->listaAlunos[i].n2) / Pont->Quantidade);
+
+		// For para percorrer a quantidade de alunos cadastrados até o momento
+		//	Para cada aluno cadastra ele anda e pegar suas duas notas
+		//	Por fim ele pega a soma de todas as notas e divide por "i"(quantidade de alunos cadastrados)
 	}
-}*/
+
+
+
+}
+*/
+

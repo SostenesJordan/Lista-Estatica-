@@ -28,6 +28,10 @@ void liberarLista(List* Pont);
 
 int tamanhoDaLista(List* Pont);
 
-int situacaoDoAluno(List* Pont, int al, Aluno* aluno);
+void imprimirLista(List* Pont);
 
-//int MediaDaTurma(List* Pont, int al, Aluno* aluno);
+//int MediaDaTurma(List* Pont);
+
+
+// Criar uma função que guarde todos os usuarios
+// -> for -> nota++ 

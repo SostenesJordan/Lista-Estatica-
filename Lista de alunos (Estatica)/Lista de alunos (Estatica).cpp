@@ -27,18 +27,20 @@ int main()
     while (i != 0)
     {
 		printf("\n#############################################");
-		printf("\n           MENU - Lista de informação       ");
-		printf("\n                                            ");
-		printf("\n	                                           ");
-		printf("\n                                            ");
-		printf("\n	 1 = Matriculas                            ");
-		printf("\n	 2 = Adicionar aluno                       ");
-		printf("\n	 3 = Remover aluno                         ");
-		printf("\n	 4 = Buscar                                ");
-		printf("\n   5 = Situação do estudante                 ");
-		printf("\n   6 = Calcular a media da turma             ");
-		printf("\n	 Qualquer outra tecla  irá sair            ");
-		printf("\n                                            ");
+		printf("\n           MENU - Lista de informacao      ");
+		printf("\n    ");
+		printf("\n	  ");
+		printf("\n    ");
+		printf("\n	 1 = Matriculas   ");
+		printf("\n	 2 = Adicionar aluno ");
+		printf("\n	 3 = Remover aluno ");
+		printf("\n	 4 = Buscar/Adicionar/Ver media da turma  ");
+		printf("\n   5 = Situacao do estudante ");
+		printf("\n   6 = Imprimir lista de alunos ");
+		printf("\n   7 = calcular a media de todos os alunos ");
+		printf("\n  ");
+		printf("\n	 Qualquer outra tecla  vai sair ");
+		printf("\n  ");
 		printf("\n#############################################");
 		printf("\n\n");
 
@@ -73,7 +75,7 @@ int main()
 
 				//buscar aluno lista
 			case '4':
-				cout << "Informe a posição que deseja acessar :"; cin >> aux;
+				cout << "Informe a posicao que deseja acessar :"; cin >> aux;
 
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
@@ -81,12 +83,34 @@ int main()
 					cout << "ERROR" << endl;
 				}
 
+				if (p.n1 && p.n2 <= 0) {
+
+					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
+					cout <<"Situacao - "<< "Cursando..."<<endl<<endl;
+
+					cout << "Para 'sim' digite -> '1' | Para 'não' digite -> '0' " << endl;
+					int mudarNotas;
+					cin >> mudarNotas;
+
+					if (mudarNotas == 1) {
+						cout << "Digite a nota 1: "; cin >> p.n1;
+						cout << "Digite a nota 2: "; cin >> p.n2;
+
+						cout << "Nota adicionada !" << endl;
+					}
+
+				}
+				else
+				{
+					//cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl<<"Nota 1 - "<<p.n1<<endl<<"Nota 2 - "<<p.n2<<endl;
+				}
+
 				//" Nota 1 - " << p.n1 << endl << " Nota 2 - " << p.n2 <<
-				cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
+				//cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
 
-				cout << " "; cout << " ";
+				
 
-				cout << "Para 'sim' digite -> '1' | Para 'não' digite -> '0' " << endl;
+				/*cout << "Para 'sim' digite -> '1' | Para 'não' digite -> '0' " << endl;
 				int mudarNotas;
 				cin >> mudarNotas;
 
@@ -94,18 +118,21 @@ int main()
 					cout << "Digite a nota 1: "; cin >> p.n1;
 					cout << "Digite a nota 2: "; cin >> p.n2;
 
-					cout << "Nota adicionada !" << endl;
+					cout << "Nota adicionada !" << endl<<endl;
 				}
 				else
 				{
-					cout << " ";
+					cout << " "<<endl<<endl;
 				}
+				*/
+				//-----------------------------------------
+				
 				break;
 
 				// Consultar situação do aluno
 			case '5':
 
-				cout << "Informe a posição que deseja acessar :"; cin >> aux;
+				cout << "Informe a posicao que deseja acessar :"; cin >> aux;
 
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
@@ -132,28 +159,56 @@ int main()
 				}
 				break;
 
-				//calcular a media da turma intereira
-
+				// Exibir toda a lista de alunos
 			case '6':
-				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
-				if (aux == 0) {
-					cout << "ERROR" << endl;
-				}
-				else 
+				imprimirLista(ListaAlunos);
+
+
+				break;
+
+				
+				//calcular a media da turma inteira
+			case '7':
+				aux = tamanhoDaLista(ListaAlunos);
+
+				float nota1, nota2, somanota, mediaaluno, somaclasse = 0;
+				float mediaclasse = 0;
+				int i, aprovado = 0, reprovado = 0, exame = 0;
+
+				for (i = 1; i <= aux; i++)
 				{
-					float mediaTurma;
+					cout << "\n Digite a primeira nota: ";
+					cin >> nota1;
+
+					cout << "\n Digite a segunda nota: ";
+					cin >> nota2;
+
+					somanota = nota1 + nota2;
+					mediaaluno = somanota / 2;
+
+					if (mediaaluno >= 7)
+					{
+						cout << "\n Aprovado";
+						exame++;
+					}
+
+					else
+
+					{
+						cout << "\n Reprovado";
+						reprovado++;
+					}
+
+					somaclasse = somaclasse + somanota;
 				}
 
-				break;
+				mediaclasse = somaclasse / (aux*2);
+				cout << "\n A media da classe  foi : " << mediaclasse;
+				system("pause");
+				
 
-
-			default:
-				cout << "saindo..." << endl;
-				liberarLista(ListaAlunos);
-				exit(0);
-				break;
-
+			
 
 		}
 
