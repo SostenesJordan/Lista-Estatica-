@@ -28,23 +28,23 @@ int main()
     {
 		printf("\n#############################################");
 		printf("\n           MENU - Lista de informacao      ");
-		printf("\n    ");
-		printf("\n	  ");
-		printf("\n    ");
-		printf("\n	 1 = Matriculas   ");
-		printf("\n	 2 = Adicionar aluno ");
-		printf("\n	 3 = Remover aluno ");
-		printf("\n	 4 = Buscar/Adicionar/Ver media da turma  ");
-		printf("\n   5 = Situacao do estudante ");
-		printf("\n   6 = Imprimir lista de alunos ");
-		printf("\n   7 = calcular a media de todos os alunos ");
-		printf("\n  ");
-		printf("\n	 Qualquer outra tecla  vai sair ");
-		printf("\n  ");
+		printf("\n");
+		printf("\n");
+		printf("\n");
+		printf("\n-->  [1] = Matriculas (total)\n   ");
+		printf("\n-->  [2] = Adicionar novo aluno\n ");
+		printf("\n-->  [3] = Remover aluno\n ");
+		printf("\n-->  [4] = Buscar\n  ");
+		printf("\n-->  [5] = Situacao do estudante\n ");
+		printf("\n-->  [6] = Imprimir lista de alunos\n ");
+		printf("\n-->  [7] = calcular a media de todos os alunos\n ");
+		printf("\n");
+		printf("\nQualquer outra tecla  vai sair\n ");
+		printf("\n");
 		printf("\n#############################################");
-		printf("\n\n");
+		printf("\n\n\n>> "); cin >> menu;
 
-		cin >> menu;
+		
 
 		menu = toupper(menu);
 
@@ -52,7 +52,7 @@ int main()
 		{
 			case '1': // Mostrar a quantidade de alunos matriculados
 				aux = tamanhoDaLista(ListaAlunos);
-				cout << "Elementos na Lista :" << aux << endl;
+				cout << "Elementos na Lista : " << aux << endl;
 				break;
 
 			case '2': // Add novo aluno
@@ -77,21 +77,26 @@ int main()
 			case '4':
 				cout << "Informe a posicao que deseja acessar :"; cin >> aux;
 
+
+
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
 				if (aux == 0) {
 					cout << "ERROR" << endl;
 				}
+					//----
 
-				if (p.n1 && p.n2 <= 0) {
+
+
+				if (p.n2 && p.n1 <= 0) {
 
 					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
 					cout <<"Situacao - "<< "Cursando..."<<endl<<endl;
 
-					cout << "Para 'sim' digite -> '1' | Para 'não' digite -> '0' " << endl;
+					cout << "Deseja adicionar notas do aluno ?\n [1] para SIM || [2] para NAO" << endl;
 					int mudarNotas;
 					cin >> mudarNotas;
-
+					
 					if (mudarNotas == 1) {
 						cout << "Digite a nota 1: "; cin >> p.n1;
 						cout << "Digite a nota 2: "; cin >> p.n2;
@@ -102,6 +107,20 @@ int main()
 				}
 				else
 				{
+					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
+					cout << "Situacao : " << "" << endl << endl;
+					if (p.n1 * 0.4 && p.n2 * 0.6 >= 6) {
+
+						cout << "Aluno APROVADO !\n";
+					}
+					else
+					{
+						cout << "Aluno REPROVADO\n";
+					}
+
+
+
+
 					//cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl<<"Nota 1 - "<<p.n1<<endl<<"Nota 2 - "<<p.n2<<endl;
 				}
 
@@ -132,7 +151,7 @@ int main()
 				// Consultar situação do aluno
 			case '5':
 
-				cout << "Informe a posicao que deseja acessar :"; cin >> aux;
+				cout << "Informe a posicao do aluno desejado :"; cin >> aux;
 
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
@@ -140,7 +159,7 @@ int main()
 					cout << "ERROR" << endl;
 				}
 
-				if (p.n1 && p.n2 < 0)
+				if (p.n1 && p.n2 <= -0)
 				{
 					cout << "Aluno cursando..." << endl;
 				}
@@ -150,11 +169,11 @@ int main()
 
 					if (p.n1 * 0.4 && p.n2 * 0.6 >= 6) {
 
-						cout << "Aluno APROVADO !";
+						cout << "Aluno APROVADO !\n";
 					}
 					else
 					{
-						cout << "Aluno REPROVADO";
+						cout << "Aluno REPROVADO\n";
 					}
 				}
 				break;
