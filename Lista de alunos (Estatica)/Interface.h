@@ -5,7 +5,7 @@ struct Aluno
 	char nome[30];
 	int matricula;
 	int idade;
-	float n1, n2;
+	float n1, n2 = 0;
 	float media;
 	char situacao;
 };

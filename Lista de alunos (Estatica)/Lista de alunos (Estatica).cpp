@@ -39,7 +39,7 @@ int main()
 		printf("\n-->  [6] = Imprimir lista de alunos\n ");
 		printf("\n-->  [7] = calcular a media de todos os alunos\n ");
 		printf("\n");
-		printf("\nQualquer outra tecla  vai sair\n ");
+		printf("\n           --> [0] PARA SAIR DO PROGRAMA!\n ");
 		printf("\n");
 		printf("\n#############################################");
 		printf("\n\n\n>> "); cin >> menu;
@@ -50,9 +50,17 @@ int main()
 
 		switch (menu)
 		{
+			case '0':
+				cout << "Programa finalizado...\n";
+				i = 0;
+				break;
+
+
+
 			case '1': // Mostrar a quantidade de alunos matriculados
 				aux = tamanhoDaLista(ListaAlunos);
-				cout << "Elementos na Lista : " << aux << endl;
+				cout << "Tem : " << aux <<" na lista"<< endl;
+				system("pause");
 				break;
 
 			case '2': // Add novo aluno
@@ -63,6 +71,7 @@ int main()
 				if (aux == 0) {
 					cout << "ERROR" << endl;
 				}
+				system("pause");
 				break;
 
 			case '3': // Remove aluno
@@ -71,6 +80,7 @@ int main()
 				if (aux == 0) {
 					cout << "ERROR" << endl;
 				}
+				system("pause");
 				break;
 
 				//buscar aluno lista
@@ -91,7 +101,9 @@ int main()
 				if (p.n2 && p.n1 <= 0) {
 
 					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
-					cout <<"Situacao - "<< "Cursando..."<<endl<<endl;
+					if (p.n1 == 0 && p.n2 == 0) {
+						cout << "Situacao - " << "Cursando..." << endl << endl;
+					}
 
 					cout << "Deseja adicionar notas do aluno ?\n [1] para SIM || [2] para NAO" << endl;
 					int mudarNotas;
@@ -145,7 +157,7 @@ int main()
 				}
 				*/
 				//-----------------------------------------
-				
+				system("pause");
 				break;
 
 				// Consultar situação do aluno
@@ -176,6 +188,7 @@ int main()
 						cout << "Aluno REPROVADO\n";
 					}
 				}
+				system("pause");
 				break;
 
 				// Exibir toda a lista de alunos
@@ -183,7 +196,7 @@ int main()
 
 				imprimirLista(ListaAlunos);
 
-
+				system("pause");
 				break;
 
 				
@@ -225,7 +238,7 @@ int main()
 				mediaclasse = somaclasse / (aux*2);
 				cout << "\n A media da classe  foi : " << mediaclasse;
 				system("pause");
-				
+				break;
 
 			
 
