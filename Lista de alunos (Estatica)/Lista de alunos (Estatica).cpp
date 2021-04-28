@@ -98,7 +98,7 @@ int main()
 
 
 
-				if (p.n2 && p.n1 <= 0) {
+				
 
 					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
 					if (p.n1 == 0 && p.n2 == 0) {
@@ -113,12 +113,31 @@ int main()
 						cout << "Digite a nota 1: "; cin >> p.n1;
 						cout << "Digite a nota 2: "; cin >> p.n2;
 
-						cout << "Nota adicionada !" << endl;
-					}
+						cout << "Nota adicionada !" << endl<<endl;
 
-				}
-				else
-				{
+						if ((p.n1 * 0.4) + (p.n2 * 0.6) >= 6) {
+
+							cout << "Aluno APROVADO !\n";
+						}
+						else
+						{
+							cout << "Aluno REPROVADO\n";
+						}
+
+					}
+				
+				
+				
+
+
+
+
+
+
+
+
+
+					/*
 					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
 					cout << "Situacao : " << "" << endl << endl;
 					if (p.n1 * 0.4 && p.n2 * 0.6 >= 6) {
@@ -129,12 +148,12 @@ int main()
 					{
 						cout << "Aluno REPROVADO\n";
 					}
-
+					*/
 
 
 
 					//cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl<<"Nota 1 - "<<p.n1<<endl<<"Nota 2 - "<<p.n2<<endl;
-				}
+				
 
 				//" Nota 1 - " << p.n1 << endl << " Nota 2 - " << p.n2 <<
 				//cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
@@ -171,7 +190,7 @@ int main()
 					cout << "ERROR" << endl;
 				}
 
-				if (p.n1 && p.n2 <= -0)
+				if (p.n1 == 0 && p.n2 == 0)
 				{
 					cout << "Aluno cursando..." << endl;
 				}
@@ -179,7 +198,7 @@ int main()
 					cout << " Notas do aluno : " << endl << " Nota 1 - " << p.n1 << endl << "Nota 2 - " << p.n2 << endl;
 					cout << " ";
 
-					if (p.n1 * 0.4 && p.n2 * 0.6 >= 6) {
+					if ((p.n1 * 0.4) + (p.n2 * 0.6) >= 6) {
 
 						cout << "Aluno APROVADO !\n";
 					}
