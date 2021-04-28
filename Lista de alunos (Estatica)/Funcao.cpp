@@ -122,12 +122,12 @@ int removeAluno(List* Pont, float matAluno) {
 // Função para buscar aluno (por matricula)
 int buscarAlunoNaLista(List* Pont, int al, Aluno* aluno){
 	if (Pont == NULL) {
-		cout << "\nERROR" << endl;
+		//cout << "\nERROR" << endl;
 		return 0;
 	}
 	else if (al <= 0 || al > Pont->Quantidade)
 	{
-		cout << "Elemento não encontrado!" << endl;
+		//cout << "Elemento não encontrado!" << endl;
 		return 0;
 	}
 	else
