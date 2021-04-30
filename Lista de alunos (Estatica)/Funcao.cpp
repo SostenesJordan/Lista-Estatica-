@@ -133,6 +133,54 @@ int buscarAlunoNaLista(List* Pont, int al, Aluno* aluno){
 	else
 	{
 		*aluno = Pont->listaAlunos[al - 1];
+
+		int al;
+		cout << "Informe a posicao que deseja acessar: "; cin >> al;
+		al = al++;
+		if (al == 0) {
+			cout << "ERROR" << endl;
+		}
+
+		cout << " Aluno solicitado em : " << endl << " Nome - " << Pont->listaAlunos->nome << endl << " Matricula - " << Pont->listaAlunos->matricula << endl << " Idade - " << Pont->listaAlunos->idade << endl;
+
+		if (Pont->listaAlunos->n1 == 0 && Pont->listaAlunos->n2 == 0) {
+
+			cout << "Situacao - " << "Cursando" << endl << endl;
+
+			cout << "Deseja inserir as notas do aluno? \n [1] >> SIM || [2] >> NAO -> " << endl;
+			int mudarNotas;
+			cin >> mudarNotas;
+
+			if (mudarNotas == 1) {
+				cout << "Insira a N1: "; cin >> Pont->listaAlunos->n1;
+				cout << "Insira a N2: "; cin >> Pont->listaAlunos->n2;
+
+				cout << "Nota adicionada !" << endl << endl;
+
+
+
+			}
+
+
+		}
+		else
+		{
+			cout << "Nota 1 - " << Pont->listaAlunos->n1 << endl << "Nota 2 - " << Pont->listaAlunos->n2 << endl;
+
+
+			if (Pont->listaAlunos->n1 * 0.4 + Pont->listaAlunos->n2 * 0.6 / 2 >= 6) {
+
+				cout << "Aluno APROVADO !\n";
+			}
+			else
+			{
+				cout << "Aluno REPROVADO\n";
+			}
+		}
+
+
+
+
 		return 1;
 	}
 }
@@ -164,7 +212,14 @@ int tamanhoDaLista(List* Pont) {
 
 void imprimirLista(List* Pont) {
 	for (int i = 0; i < Pont->Quantidade; i++) {
-		cout << i + 1 << " - " << "Nome = " << Pont->listaAlunos[i].nome << " Matricula = " << Pont->listaAlunos[i].matricula<< "\n";
+		
+		
+
+			cout << i + 1 << " - " << "Nome = " << Pont->listaAlunos[i].nome << " Matricula = " << Pont->listaAlunos[i].matricula << "\n" << endl << "Nota 1 - " << Pont->listaAlunos[i].n1 << endl << "Nota 2 - " << Pont->listaAlunos[i].n2 << endl;
+			
+	
+			//cout << i + 1 << " - " << "Nome = " << Pont->listaAlunos[i].nome << " Matricula = " << Pont->listaAlunos[i].matricula << endl << "Cursando" << endl;
+		
 	}
 }
 

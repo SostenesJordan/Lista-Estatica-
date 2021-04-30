@@ -66,6 +66,8 @@ int main()
 				cout << "Informe o nome :"; cin >> p.nome ;
 				cout << "Informe a matricula :"; cin >> p.matricula ;
 				cout << "Informe a idade :"; cin >> p.idade;
+				p.n1 = 0; p.n2 = 0;
+				p.media = p.n1 * 0.4 + p.n2 * 0.6 / 2;
 				aux = inserirAlunoNovo(ListaAlunos, p);
 				if (aux == 0) {
 					cout << "ERROR" << endl;
@@ -84,30 +86,43 @@ int main()
 
 				//buscar aluno lista
 			case '4':
+				int buscarAlunoNaLista(List * Pont, int al, Aluno * aluno);
+				buscarAlunoNaLista(ListaAlunos, aux, Alunop);
+			/*
 				cout << "Informe a posicao que deseja acessar: "; cin >> aux;
-
+				aux = aux - 1;
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
 
 				if (aux == 0) {
 					cout << "ERROR" << endl;
 				}
-					//----
+					//----0.00000000
+					p.media = p.n1 * 0.4 + p.n2 * 0.6 / 2;
 					cout << " Aluno solicitado em : " << endl << " Nome - " << p.nome << endl << " Matricula - " << p.matricula << endl << " Idade - " << p.idade << endl;
 					if (p.n1 == 0 && p.n2 == 0) {
 						cout << "Situacao - " << "Cursando" << endl << endl;
+
+						cout << "Deseja inserir as notas do aluno? \n [1] >> SIM || [2] >> NAO -> " << endl;
+						int mudarNotas;
+						cin >> mudarNotas;
+						if (mudarNotas == 1) {
+							cout << "Insira a N1: "; cin >> p.n1;
+							cout << "Insira a N2: "; cin >> p.n2;
+
+							cout << "Nota adicionada !" << endl<<endl;
+
+
+
+						}
+
+
 					}
+					else
+					{
+						cout << "Nota 1 - " << p.n1 << endl << "Nota 2 - " << p.n2 << endl;
+						
 
-					cout << "Deseja inserir as notas do aluno? \n [1] >> SIM || [2] >> NAO -> " << endl;
-					int mudarNotas;
-					cin >> mudarNotas;
-					
-					if (mudarNotas == 1) {
-						cout << "Insira a N1: "; cin >> p.n1;
-						cout << "Insira a N2: "; cin >> p.n2;
-
-						cout << "Nota adicionada !" << endl<<endl;
-
-						if ((p.n1 * 0.4) + (p.n2 * 0.6) >= 6) {
+						if (p.media >= 6) {
 
 							cout << "Aluno APROVADO !\n";
 						}
@@ -115,20 +130,24 @@ int main()
 						{
 							cout << "Aluno REPROVADO\n";
 						}
-
 					}
+
+
+				*/	
+
 				
 				//-----------------------------------------
 				system("pause");
 				break;
 
 				// Consultar situação do aluno
+				
 			case '5':
 
 				cout << "Informe a posicao do aluno desejado :"; cin >> aux;
-
+				aux = aux - 1;
 				aux = buscarAlunoNaLista(ListaAlunos, aux, Alunop);
-
+				p.media = (p.n1 * 0.4 + p.n2 * 0.6 / 2);
 				if (aux == 0) {
 					
 				}
@@ -152,10 +171,11 @@ int main()
 				}
 				system("pause");
 				break;
+					
 
 				// Exibir toda a lista de alunos
 			case '6':
-
+				
 				imprimirLista(ListaAlunos);
 
 				system("pause");
